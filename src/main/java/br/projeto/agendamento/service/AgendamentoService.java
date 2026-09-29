@@ -62,6 +62,7 @@ public class AgendamentoService {
         saida.setDataHora(entrada.getDataHora());
         saida.setPeso(entrada.getPeso());
         saida.setVolume(entrada.getVolume());
+        saida.setPedido(entrada.getPedido());
     }
 
 
