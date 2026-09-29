@@ -14,13 +14,13 @@ public class AgendamentoRequestDto {
     private LocalDateTime dataHora;
     private double peso;
     private int volume;
-    private String pedido;
+    private int pedido;
 
 
     public AgendamentoRequestDto() {}
 
     public AgendamentoRequestDto(String cnpj, String transportadora, String telefone, String email,
-                                 String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, String pedido) {
+                                 String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido) {
         this.cnpj = cnpj;
         this.transportadora = transportadora;
         this.telefone = telefone;
@@ -106,11 +106,11 @@ public class AgendamentoRequestDto {
         this.volume = volume;
     }
 
-    public String getPedido() {
+    public int getPedido() {
         return pedido;
     }
 
-    public void setPedido(String pedido) {
+    public void setPedido(int pedido) {
         this.pedido = pedido;
     }
 }

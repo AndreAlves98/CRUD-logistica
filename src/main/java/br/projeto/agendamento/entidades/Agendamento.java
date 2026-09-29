@@ -41,12 +41,12 @@ public class Agendamento {
     private int volume;
 
     @Column(length = 6)
-    private String pedido;
+    private int pedido;
 
     public Agendamento() {}
 
     public Agendamento(Long id, String cnpj, String transportadora, String telefone, String email,
-                       String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, String pedido) {
+                       String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido) {
 
         this.id = id;
         this.cnpj = cnpj;
@@ -142,11 +142,11 @@ public class Agendamento {
         this.volume = volume;
     }
 
-    public String getPedido() {
+    public int getPedido() {
         return pedido;
     }
 
-    public void setPedido(String pedido) {
+    public void setPedido(int pedido) {
         this.pedido = pedido;
     }
 }
