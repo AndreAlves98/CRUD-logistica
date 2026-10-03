@@ -46,10 +46,13 @@ public class Agendamento {
     @Column(length = 9)
     private String notaFiscal;
 
+    @Column(length = 500)
+    private String observacoes;
+
     public Agendamento() {}
 
     public Agendamento(Long id, String cnpj, String transportadora, String telefone, String email,
-                       String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido, String notaFiscal) {
+                       String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido, String notaFiscal, String observacoes) {
 
         this.id = id;
         this.cnpj = cnpj;
@@ -63,6 +66,7 @@ public class Agendamento {
         this.volume = volume;
         this.pedido = pedido;
         this.notaFiscal = notaFiscal;
+        this.observacoes = observacoes;
     }
 
 
@@ -158,7 +162,17 @@ public class Agendamento {
         return notaFiscal;
     }
 
+    public String getObservacoes() {
+        return observacoes;
+    }
+
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
     public void setNotaFiscal(String notaFiscal) {
         this.notaFiscal = notaFiscal;
+
+
     }
 }
