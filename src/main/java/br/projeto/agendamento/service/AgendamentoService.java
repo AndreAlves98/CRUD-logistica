@@ -63,6 +63,7 @@ public class AgendamentoService {
         saida.setPeso(entrada.getPeso());
         saida.setVolume(entrada.getVolume());
         saida.setPedido(entrada.getPedido());
+        saida.setNotaFiscal(entrada.getNotaFiscal());
     }
 
 

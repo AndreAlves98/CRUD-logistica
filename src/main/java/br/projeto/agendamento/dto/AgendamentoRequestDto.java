@@ -15,12 +15,13 @@ public class AgendamentoRequestDto {
     private double peso;
     private int volume;
     private int pedido;
+    private String notaFiscal;
 
 
     public AgendamentoRequestDto() {}
 
     public AgendamentoRequestDto(String cnpj, String transportadora, String telefone, String email,
-                                 String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido) {
+                                 String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido, String notaFiscal) {
         this.cnpj = cnpj;
         this.transportadora = transportadora;
         this.telefone = telefone;
@@ -31,6 +32,7 @@ public class AgendamentoRequestDto {
         this.peso = peso;
         this.volume = volume;
         this.pedido = pedido;
+        this.notaFiscal = notaFiscal;
     }
 
 
@@ -112,5 +114,13 @@ public class AgendamentoRequestDto {
 
     public void setPedido(int pedido) {
         this.pedido = pedido;
+    }
+
+    public String getNotaFiscal() {
+        return notaFiscal;
+    }
+
+    public void setNotaFiscal(String notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
 }
