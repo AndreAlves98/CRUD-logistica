@@ -1,14 +1,10 @@
 package br.projeto.agendamento.dto;
 
-
 import java.time.LocalDateTime;
 
 public class AgendamentoRequestDto {
 
-    private String cnpj;
-    private String transportadora;
-    private String telefone;
-    private String email;
+    private Long transportadoraId;
     private String placa;
     private String tipoVeiculo;
     private LocalDateTime dataHora;
@@ -18,15 +14,12 @@ public class AgendamentoRequestDto {
     private String notaFiscal;
     private String observacoes;
 
-
     public AgendamentoRequestDto() {}
 
-    public AgendamentoRequestDto(String cnpj, String transportadora, String telefone, String email,
-                                 String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido, String notaFiscal, String observacoes) {
-        this.cnpj = cnpj;
-        this.transportadora = transportadora;
-        this.telefone = telefone;
-        this.email = email;
+    public AgendamentoRequestDto(Long transportadoraId, String placa, String tipoVeiculo,
+                                 LocalDateTime dataHora, double peso, int volume, int pedido,
+                                 String notaFiscal, String observacoes) {
+        this.transportadoraId = transportadoraId;
         this.placa = placa;
         this.tipoVeiculo = tipoVeiculo;
         this.dataHora = dataHora;
@@ -37,37 +30,12 @@ public class AgendamentoRequestDto {
         this.observacoes = observacoes;
     }
 
-
-    public String getCnpj() {
-        return cnpj;
+    public Long getTransportadoraId() {
+        return transportadoraId;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getTransportadora() {
-        return transportadora;
-    }
-
-    public void setTransportadora(String transportadora) {
-        this.transportadora = transportadora;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTransportadoraId(Long transportadoraId) {
+        this.transportadoraId = transportadoraId;
     }
 
     public String getPlaca() {

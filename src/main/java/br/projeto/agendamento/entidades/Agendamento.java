@@ -1,6 +1,5 @@
 package br.projeto.agendamento.entidades;
 
-
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -13,17 +12,9 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 14)
-    private String cnpj;
-
-    @Column(nullable = false, length = 50)
-    private String transportadora;
-
-    @Column(nullable = false, length = 11)
-    private String telefone;
-
-    @Column(nullable = false, length = 200)
-    private String email;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "transportadora_id", nullable = false)
+    private Transportadora transportadora;
 
     @Column(nullable = false, length = 10)
     private String placa;
@@ -51,14 +42,11 @@ public class Agendamento {
 
     public Agendamento() {}
 
-    public Agendamento(Long id, String cnpj, String transportadora, String telefone, String email,
-                       String placa, String tipoVeiculo, LocalDateTime dataHora, double peso, int volume, int pedido, String notaFiscal, String observacoes) {
-
+    public Agendamento(Long id, Transportadora transportadora, String placa, String tipoVeiculo,
+                       LocalDateTime dataHora, double peso, int volume, int pedido,
+                       String notaFiscal, String observacoes) {
         this.id = id;
-        this.cnpj = cnpj;
         this.transportadora = transportadora;
-        this.telefone = telefone;
-        this.email = email;
         this.placa = placa;
         this.tipoVeiculo = tipoVeiculo;
         this.dataHora = dataHora;
@@ -69,7 +57,6 @@ public class Agendamento {
         this.observacoes = observacoes;
     }
 
-
     public Long getId() {
         return id;
     }
@@ -78,36 +65,12 @@ public class Agendamento {
         this.id = id;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
-    public String getTransportadora() {
+    public Transportadora getTransportadora() {
         return transportadora;
     }
 
-    public void setTransportadora(String transportadora) {
+    public void setTransportadora(Transportadora transportadora) {
         this.transportadora = transportadora;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPlaca() {
@@ -162,17 +125,15 @@ public class Agendamento {
         return notaFiscal;
     }
 
+    public void setNotaFiscal(String notaFiscal) {
+        this.notaFiscal = notaFiscal;
+    }
+
     public String getObservacoes() {
         return observacoes;
     }
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
-    }
-
-    public void setNotaFiscal(String notaFiscal) {
-        this.notaFiscal = notaFiscal;
-
-
     }
 }
