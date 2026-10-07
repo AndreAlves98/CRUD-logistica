@@ -54,6 +54,10 @@ public class AgendamentoService {
 
     // REGRAS DE NEGOCIO
     private void copiarDadosParaEntidade(AgendamentoRequestDto entrada, Agendamento saida) {
+        if (entrada.getTipo() == null) {
+            throw new RuntimeException("O campo Tipo é obrigatório (FORNECEDOR ou TRANSPORTADORA)");
+        }
+
         Transportadora transportadora = transportadoraRepositorio.findById(entrada.getTransportadoraId())
                 .orElseThrow(() -> new RuntimeException("Transportadora não encontrada"));
 
@@ -66,5 +70,6 @@ public class AgendamentoService {
         saida.setPedido(entrada.getPedido());
         saida.setNotaFiscal(entrada.getNotaFiscal());
         saida.setObservacoes(entrada.getObservacoes());
+        saida.setTipo((entrada.getTipo()));
     }
 }

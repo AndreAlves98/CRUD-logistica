@@ -1,5 +1,7 @@
 package br.projeto.agendamento.dto;
 
+import br.projeto.agendamento.entidades.TipoAgendamento;
+
 import java.time.LocalDateTime;
 
 public class AgendamentoRequestDto {
@@ -10,15 +12,16 @@ public class AgendamentoRequestDto {
     private LocalDateTime dataHora;
     private double peso;
     private int volume;
-    private int pedido;
+    private String pedido;
     private String notaFiscal;
     private String observacoes;
+    private TipoAgendamento tipo;
 
     public AgendamentoRequestDto() {}
 
     public AgendamentoRequestDto(Long transportadoraId, String placa, String tipoVeiculo,
-                                 LocalDateTime dataHora, double peso, int volume, int pedido,
-                                 String notaFiscal, String observacoes) {
+                                 LocalDateTime dataHora, double peso, int volume, String pedido,
+                                 String notaFiscal, String observacoes, TipoAgendamento tipo) {
         this.transportadoraId = transportadoraId;
         this.placa = placa;
         this.tipoVeiculo = tipoVeiculo;
@@ -28,6 +31,7 @@ public class AgendamentoRequestDto {
         this.pedido = pedido;
         this.notaFiscal = notaFiscal;
         this.observacoes = observacoes;
+        this.tipo = tipo;
     }
 
     public Long getTransportadoraId() {
@@ -78,11 +82,11 @@ public class AgendamentoRequestDto {
         this.volume = volume;
     }
 
-    public int getPedido() {
+    public String getPedido() {
         return pedido;
     }
 
-    public void setPedido(int pedido) {
+    public void setPedido(String pedido) {
         this.pedido = pedido;
     }
 
@@ -100,5 +104,13 @@ public class AgendamentoRequestDto {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public TipoAgendamento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAgendamento tipo) {
+        this.tipo = tipo;
     }
 }

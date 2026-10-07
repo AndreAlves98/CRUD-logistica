@@ -16,6 +16,8 @@ public class Agendamento {
     @JoinColumn(name = "transportadora_id", nullable = false)
     private Transportadora transportadora;
 
+
+
     @Column(nullable = false, length = 10)
     private String placa;
 
@@ -32,7 +34,7 @@ public class Agendamento {
     private int volume;
 
     @Column(length = 6)
-    private int pedido;
+    private String pedido;
 
     @Column(length = 9)
     private String notaFiscal;
@@ -40,11 +42,15 @@ public class Agendamento {
     @Column(length = 500)
     private String observacoes;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private TipoAgendamento tipo;
+
     public Agendamento() {}
 
     public Agendamento(Long id, Transportadora transportadora, String placa, String tipoVeiculo,
-                       LocalDateTime dataHora, double peso, int volume, int pedido,
-                       String notaFiscal, String observacoes) {
+                       LocalDateTime dataHora, double peso, int volume, String pedido,
+                       String notaFiscal, String observacoes, TipoAgendamento tipo) {
         this.id = id;
         this.transportadora = transportadora;
         this.placa = placa;
@@ -55,6 +61,7 @@ public class Agendamento {
         this.pedido = pedido;
         this.notaFiscal = notaFiscal;
         this.observacoes = observacoes;
+        this.tipo = tipo;
     }
 
     public Long getId() {
@@ -113,11 +120,11 @@ public class Agendamento {
         this.volume = volume;
     }
 
-    public int getPedido() {
+    public String getPedido() {
         return pedido;
     }
 
-    public void setPedido(int pedido) {
+    public void setPedido(String pedido) {
         this.pedido = pedido;
     }
 
@@ -135,5 +142,13 @@ public class Agendamento {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public TipoAgendamento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAgendamento tipo) {
+        this.tipo = tipo;
     }
 }
